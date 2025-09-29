@@ -16,9 +16,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        // Ensure your API key is in local.properties or gradle.properties
-        // The value from gradleProperty should be the raw key.
+        
+        // For OpenAI API Key
         buildConfigField("String", "OPENAI_API_KEY", "\"${providers.gradleProperty("OPENAI_API_KEY").getOrElse("")}\"")
+        // Added for VirusTotal API Key
+        buildConfigField("String", "VIRUSTOTAL_API_KEY", "\"${providers.gradleProperty("VIRUSTOTAL_API_KEY").getOrElse("")}\"")
     }
 
     buildTypes {
@@ -60,6 +62,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4") // For viewModelScope, ViewModel base class
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4") // For viewModel() delegate in Compose
 
+    // Navigation Compose
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
     // Retrofit for networking
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -76,4 +81,5 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation("androidx.compose.material:material-icons-extended:1.7.0") // Use the latest version
 }
