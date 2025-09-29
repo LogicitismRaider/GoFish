@@ -41,7 +41,7 @@ import com.example.gofish.util.PatternLinkDetector
 
 // Navigation Sealed Class
 sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
-    object Home : Screen("home", "HOME_SCAN", Icons.Filled.Security)
+    object Home : Screen("home", "GoFish", Icons.Filled.Security)
     object History : Screen("history", "SCAN_LOG", Icons.Filled.History)
     object Profile : Screen("profile", "USER_ID", Icons.Filled.Person)
 }
